@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 
 class SampleController extends Controller
 {
-    public function apiHello () {
-        return 'Hello World';
+    public function apiHello (Request $request) {
+        return response()->json(
+            [
+                'morning' => $request->input('morning'),
+                'noon' => $request->input('noon'),
+            ]
+        );
     }
 }
